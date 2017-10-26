@@ -1,12 +1,18 @@
-(defproject fulcrologic/fulcro "1.0.0"
+(defproject fulcrologic/fulcro "2.0.0-SNAPSHOT"
   :description "A library for building full-stack SPA webapps in Clojure and Clojurescript"
   :url ""
   :license {:name "MIT"
             :url  "https://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.8.0" :scope "provided"]
-                 [org.clojure/clojurescript "1.9.908" :scope "provided"]
-                 [clojure-future-spec "1.9.0-alpha17"]
-                 [org.omcljs/om "1.0.0-beta1"]
+                 [org.clojure/clojurescript "1.9.946" :scope "provided"]
+
+                 [org.clojure/data.json "0.2.6" :scope "provided" :classifier "aot"]
+                 [cljsjs/react "15.5.4-0"]
+                 [cljsjs/react-dom "15.5.4-0"]
+                 [com.cognitect/transit-clj "0.8.300"]
+                 [com.cognitect/transit-cljs "0.8.239"]
+
+                 [clojure-future-spec "1.9.0-beta2"]
                  [http-kit "2.2.0"]
                  [ring/ring-core "1.6.2" :exclusions [commons-codec]]
                  [bk/ring-gzip "0.2.1"]
@@ -16,9 +22,9 @@
                  [com.ibm.icu/icu4j "58.2"]                 ; needed for i18n on server-side rendering
                  [bidi "2.1.2"]
                  [com.taoensso/sente "1.11.0"]
-                 [garden "1.3.2"]
+                 [garden "1.3.3"]
 
-                 [fulcrologic/fulcro-spec "1.0.0-beta9" :scope "test" :exclusions [fulcrologic/fulcro]]
+                 [fulcrologic/fulcro-spec "2.0.0-SNAPSHOT" :scope "test" :exclusions [fulcrologic/fulcro]]
                  [lein-doo "0.1.7" :scope "test"]
                  [org.clojure/test.check "0.10.0-alpha1" :scope "test"]]
 
@@ -65,8 +71,9 @@
                                :output-dir           "resources/public/js/cards"
                                :asset-path           "js/cards"
                                :preloads             [devtools.preload]
-                               :parallel-build       true
+                               ;:parallel-build       true
                                :source-map-timestamp true
+                               :verbose              true
                                :optimizations        :none}}
                {:id           "demos"
                 :source-paths ["src/main" "src/demos"]
@@ -157,7 +164,6 @@
                           :dependencies [[binaryage/devtools "0.9.4"]
                                          [devcards "0.2.3" :exclusions [cljsjs/react-dom cljsjs/react]]
                                          [fulcrologic/fulcro-css "1.0.0"] ; demos
-                                         [fulcrologic/fulcro-sql "0.0.1"] ; demos
                                          [org.postgresql/postgresql "42.1.4"] ; demos
                                          [com.cemerick/piggieback "0.2.1"]
                                          [figwheel-sidecar "0.5.13"]

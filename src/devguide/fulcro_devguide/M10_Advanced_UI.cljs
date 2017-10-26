@@ -5,9 +5,9 @@
             [devcards.core :as dc :refer-macros [defcard defcard-doc]]
             [fulcro.ui.clip-tool :as ct]
             [fulcro.client.cards :refer [defcard-fulcro]]
-            [om.dom :as dom]
-            [om.next :as om :refer-macros [defui]]
-            [om.util :as util]
+            [fulcro.client.dom :as dom]
+            [fulcro.client.primitives :as om :refer-macros [defui]]
+            [fulcro.util :as util]
             [fulcro.client.core :as fc]))
 
 (defn us-dollars [n]
