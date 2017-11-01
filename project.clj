@@ -7,8 +7,8 @@
                  [org.clojure/clojurescript "1.9.946" :scope "provided"]
 
                  [org.clojure/data.json "0.2.6" :scope "provided" :classifier "aot"]
-                 [cljsjs/react "15.5.4-0"]
-                 [cljsjs/react-dom "15.5.4-0"]
+                 [cljsjs/react "16.0.0-0"]
+                 [cljsjs/react-dom "16.0.0-0"]
                  [com.cognitect/transit-clj "0.8.300"]
                  [com.cognitect/transit-cljs "0.8.239"]
 
@@ -162,11 +162,11 @@
              :dev        {:source-paths ["src/dev" "src/main" "src/cards" "src/test" "src/devguide" "src/demos"]
                           :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
                           :dependencies [[binaryage/devtools "0.9.4"]
-                                         [devcards "0.2.3" :exclusions [cljsjs/react-dom cljsjs/react]]
+                                         [devcards "0.2.4" :exclusions [org.clojure/clojure cljsjs/react cljsjs/react-dom]]
                                          [fulcrologic/fulcro-css "1.0.0"] ; demos
                                          [org.postgresql/postgresql "42.1.4"] ; demos
                                          [com.cemerick/piggieback "0.2.1"]
-                                         [figwheel-sidecar "0.5.13"]
+                                         [figwheel-sidecar "0.5.14"]
                                          [cljsjs/d3 "3.5.7-1"]
                                          [cljsjs/victory "0.9.0-0"]
                                          [hickory "0.7.1"]
